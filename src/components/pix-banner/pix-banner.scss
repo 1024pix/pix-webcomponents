@@ -1,0 +1,108 @@
+$fa-font-path: '../assets/fontawesome';
+
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/spacings.scss';
+
+.pix-banner {
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  box-shadow: 0px 4px 8px rgba(7, 20, 46, 0.08);
+
+  &__action {
+    text-decoration: underline;
+    color: inherit;
+    .external-link {
+      margin-left: 4px;
+      font-size: 0.875rem;
+    }
+  }
+  &__close {
+    display: flex;
+    margin-left: auto;
+    padding-left: 8px;
+  }
+  &__icon {
+    font-size: 1.125rem;
+    margin-right: $spacing-xs;
+  }
+
+  &--information {
+    background-color: $pix-primary-5;
+    color: $pix-primary-70;
+    .pix-icon-button {
+      background-color: $pix-primary-5;
+      color: $pix-primary-70;
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
+        background-color: $pix-primary-10;
+        color: $pix-primary-70;
+      }
+
+      &:focus:enabled {
+        outline-color: $pix-primary-70;
+      }
+    }
+  }
+
+  &--warning {
+    background-color: $pix-warning-5;
+    color: $pix-warning-70;
+    .pix-icon-button {
+      background-color: $pix-warning-5;
+      color: $pix-warning-70;
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
+        background-color: $pix-warning-10;
+        color: $pix-warning-70;
+      }
+
+      &:focus:enabled {
+        outline-color: $pix-warning-70;
+      }
+    }
+  }
+
+  &--error {
+    background-color: $pix-error-5;
+    color: $pix-error-70;
+    .pix-icon-button {
+      background-color: $pix-error-5;
+      color: $pix-error-70;
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
+        background-color: $pix-error-10;
+        color: $pix-error-70;
+      }
+
+      &:focus:enabled {
+        outline-color: $pix-error-70;
+      }
+    }
+  }
+
+  &--communication {
+    background-color: $pix-primary;
+    color: $pix-neutral-0;
+
+    &-orga {
+      background-color: $dark-orga;
+      color: $pix-neutral-0;
+    }
+
+    &-certif {
+      background-color: $pix-secondary-certif-50;
+      color: $pix-neutral-0;
+    }
+  }
+}

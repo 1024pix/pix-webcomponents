@@ -20,6 +20,15 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface PixBanner {
+        "actionLabel": string;
+        "actionUrl": string;
+        "canCloseBanner": boolean;
+        /**
+          * Définit le type de bannière
+         */
+        "type": string;
+    }
 }
 declare global {
     interface HTMLHelloWorldElement extends Components.HelloWorld, HTMLStencilElement {
@@ -28,8 +37,15 @@ declare global {
         prototype: HTMLHelloWorldElement;
         new (): HTMLHelloWorldElement;
     };
+    interface HTMLPixBannerElement extends Components.PixBanner, HTMLStencilElement {
+    }
+    var HTMLPixBannerElement: {
+        prototype: HTMLPixBannerElement;
+        new (): HTMLPixBannerElement;
+    };
     interface HTMLElementTagNameMap {
         "hello-world": HTMLHelloWorldElement;
+        "pix-banner": HTMLPixBannerElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +63,18 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface PixBanner {
+        "actionLabel"?: string;
+        "actionUrl"?: string;
+        "canCloseBanner"?: boolean;
+        /**
+          * Définit le type de bannière
+         */
+        "type"?: string;
+    }
     interface IntrinsicElements {
         "hello-world": HelloWorld;
+        "pix-banner": PixBanner;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +82,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "hello-world": LocalJSX.HelloWorld & JSXBase.HTMLAttributes<HTMLHelloWorldElement>;
+            "pix-banner": LocalJSX.PixBanner & JSXBase.HTMLAttributes<HTMLPixBannerElement>;
         }
     }
 }
