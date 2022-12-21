@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Prop, State } from '@stencil/core';
 
 const TYPE_INFO = 'information';
 const TYPE_ERROR = 'error';
@@ -40,13 +40,16 @@ export class PixBanner {
 
   @Prop() canCloseBanner: boolean = false;
 
+  @Event() close: EventEmitter;
+
   @Prop() actionUrl: string;
 
   @Prop() actionLabel: string;
 
-  isBannerVisible: boolean = true;
+  @State() isBannerVisible: boolean = true;
 
-  // FIXME ...attributes
+  // ...attributes probably not possible
+  // Should be doable by passing new @Prop
 
   get displayAction() {
     return this.actionLabel && this.actionUrl;
@@ -54,6 +57,11 @@ export class PixBanner {
 
   get icon() {
     return icons[this.type];
+  }
+
+  onClose() {
+    this.close.emit();
+    this.isBannerVisible = false;
   }
 
   render() {
@@ -77,7 +85,7 @@ export class PixBanner {
           </div>
           {this.canCloseBanner && (
             <div class="pix-banner__close">
-              <button>Fermer</button>
+              <button onClick={() => this.onClose()}>Fermer</button>
             </div>
           )}
         </div>

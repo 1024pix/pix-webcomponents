@@ -10,6 +10,14 @@
   </head>
   <body>
     <hello-world first="Stencil" last="'Don't call me a framework' JS"></hello-world>
-    <pix-banner>Salut ma jolie.</pix-banner>
+
+    <pix-banner id="my-banner" style="font-size: 2rem !important" type="warning" can-close-banner="true">Salut ma jolie.</pix-banner>
+    <pix-banner id="my-banner-2" type="error" can-close-banner="true">Salut mon beauf.</pix-banner>
+
+    <script>
+      document.querySelector('#my-banner').addEventListener('close', event => {
+        console.log('#my-banner was closed');
+      });
+    </script>
   </body>
 </html>

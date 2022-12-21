@@ -30,6 +30,10 @@ export namespace Components {
         "type": string;
     }
 }
+export interface PixBannerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPixBannerElement;
+}
 declare global {
     interface HTMLHelloWorldElement extends Components.HelloWorld, HTMLStencilElement {
     }
@@ -67,6 +71,7 @@ declare namespace LocalJSX {
         "actionLabel"?: string;
         "actionUrl"?: string;
         "canCloseBanner"?: boolean;
+        "onClose"?: (event: PixBannerCustomEvent<any>) => void;
         /**
           * Définit le type de bannière
          */
