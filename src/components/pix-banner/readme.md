@@ -15,6 +15,13 @@
 | `type`           | `type`             | Définit le type de bannière | `string`  | `'information'` |
 
 
+## Events
+
+| Event   | Description | Type               |
+| ------- | ----------- | ------------------ |
+| `close` |             | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

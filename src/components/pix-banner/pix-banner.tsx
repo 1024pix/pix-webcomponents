@@ -7,15 +7,6 @@ const TYPE_COMMUNICATION = 'communication';
 const TYPE_COMMUNICATION_ORGA = 'communication-orga';
 const TYPE_COMMUNICATION_CERTIF = 'communication-certif';
 
-const types = [
-  TYPE_INFO,
-  TYPE_ERROR,
-  TYPE_WARNING,
-  TYPE_COMMUNICATION,
-  TYPE_COMMUNICATION_ORGA,
-  TYPE_COMMUNICATION_CERTIF,
-];
-
 const icons = {
   [TYPE_INFO]: 'circle-info',
   [TYPE_ERROR]: 'triangle-exclamation',
@@ -59,8 +50,8 @@ export class PixBanner {
     return icons[this.type];
   }
 
-  onClose() {
-    this.close.emit();
+  onClose(event: Event) {
+    this.close.emit(event);
     this.isBannerVisible = false;
   }
 
@@ -85,7 +76,7 @@ export class PixBanner {
           </div>
           {this.canCloseBanner && (
             <div class="pix-banner__close">
-              <button onClick={() => this.onClose()}>Fermer</button>
+              <button onClick={(event) => this.onClose(event)}>Fermer</button>
             </div>
           )}
         </div>

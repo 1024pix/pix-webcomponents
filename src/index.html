@@ -16,7 +16,10 @@
 
     <script>
       document.querySelector('#my-banner').addEventListener('close', event => {
-        console.log('#my-banner was closed');
+        console.log('#my-banner was closed', { event });
+      });
+      document.querySelector('#my-banner-2').addEventListener('close', event => {
+        console.log('#my-banner-2 was closed', { event });
       });
     </script>
   </body>
