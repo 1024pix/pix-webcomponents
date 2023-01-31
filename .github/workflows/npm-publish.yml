@@ -1,0 +1,31 @@
+name: npm publish @1024pix/pix-webcomponents
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: choice
+        required: true
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - name: Setup git user
+        run: |
+          git config --global user.name "pix-service-auto-merge"
+          git config --global user.email "service+github.auto-merge@pix.fr"
+      - run: npm version ${{ inputs.version }}
+      - run: git push && git push --tags
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_ACCESS_TOKEN}}
